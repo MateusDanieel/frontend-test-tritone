@@ -107,6 +107,7 @@ p, ul{
     align-items:center;
     color:#4C8CE3;
     cursor:pointer;
+    outline:none;
 }
 
 #pg-accordion > button.active{
@@ -141,10 +142,19 @@ p, ul{
 }
 
 #pg-accordion > article{
+    display:none;
     padding:20px 0;
 }
 
+#pg-accordion > button.active + article{
+    display:block;
+}
+
 /* CAROUSEL */
+
+#pg-carousel > h2{
+    margin-bottom:30px;
+}
 
 #pg-carousel-content{
     display:flex;
@@ -154,7 +164,7 @@ p, ul{
 
 #pg-carousel-content > a{
     display:flex;
-    max-width:30%;
+    width:30%;
     text-decoration:none;
 }
 
@@ -173,4 +183,26 @@ p, ul{
     text-transform:none;
     color:#0A559D;
     font-size:16px;
+}
+
+@media(max-width:991px){
+    #pg-carousel-content > a{
+        min-width:100%;
+        justify-content:center;
+    }
+}
+
+@media(max-width:535px){
+    #pg-content{
+        display:block;
+    }
+
+    #pg-navbar-menu > ul{
+        overflow-x:scroll;
+    }
+
+    #pg-content > main{
+        width:100%;
+    }
+    
 }
