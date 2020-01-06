@@ -119,15 +119,62 @@ b.addEventListener('click', ()=>{
         document.querySelector("#btnToggleB > span").innerHTML = '+';
     } else {
         a.classList.remove("active");
-    b.classList.add("active");
+        b.classList.add("active");
 
-    document.querySelector("#btnToggleA > span").innerHTML = '+';
-    document.querySelector("#btnToggleB > span").innerHTML = '-';
+        document.querySelector("#btnToggleA > span").innerHTML = '+';
+        document.querySelector("#btnToggleB > span").innerHTML = '-';
     }
    
 });
 
 // CAROUSEL
 
+let prev = document.querySelector('#slidePrev');
+let next = document.querySelector('#slideNext');
+let slide = [
+    document.querySelector('#slide1'),
+    document.querySelector('#slide2'),
+    document.querySelector('#slide3')
+];
 
+prev.addEventListener('click', ()=>{
+    if(slide[1].style.display == 'flex'){
 
+        slide[0].style.display = 'flex'
+        slide[1].style.display = 'none';
+        slide[2].style.display = 'none';
+
+    } else if(slide[2].style.display == 'flex'){
+
+        slide[0].style.display = 'none'
+        slide[1].style.display = 'flex';
+        slide[2].style.display = 'none';
+
+    } else {
+
+        slide[0].style.display = 'none'
+        slide[1].style.display = 'none';
+        slide[2].style.display = 'flex';
+    }
+});
+
+next.addEventListener('click', ()=>{
+    if(slide[1].style.display == 'flex'){
+
+        slide[0].style.display = 'none'
+        slide[1].style.display = 'none';
+        slide[2].style.display = 'flex';
+
+    } else if(slide[2].style.display == 'flex'){
+
+        slide[0].style.display = 'flex'
+        slide[1].style.display = 'none';
+        slide[2].style.display = 'none';
+
+    } else {
+
+        slide[0].style.display = 'none'
+        slide[1].style.display = 'flex';
+        slide[2].style.display = 'none';
+    }
+});
